@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+.top-p{
+	font-size:18px;
+	text-decoration:underline;
+	margin-top:10px;
+	margin-bottom:5px;
+}
+
+.container{
+	background:#eaeaea;
+	border-radius:10px;
+}
+
+p{
+	text-align:justify;
+}
+
+.container-fluid{
+	background:#eaeaea;
+}
+
+.col{
+	background:#999;
+	border:#FFF solid 1px;
+}

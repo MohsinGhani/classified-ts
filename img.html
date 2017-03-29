@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file"><br>
+    <img src="" height="200" width="200" alt="Image preview...">
+    <script>
+        var ls = localStorage.getItem("img") || "";
+        var file = document.querySelector('input[type=file]');
+        var img = document.querySelector('img');
+        img.src = ls;
+        file.onchange = function() {
+            var fr = new FileReader();
+            fr.onload = function() {
+                ls = fr.result
+                localStorage.setItem("img", ls);
+                ls = localStorage.getItem("img");
+                img.src = ls;
+                // location.reload();
+            }
+            if (file.files[0]) {
+                fr.readAsDataURL(file.files[0])
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- My extarnal CSS Sheet -->
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div class="container">
+        <img src="imgs/logo2.png" width="220" height="100">
+    </div>
+    <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h1 class="heading2" align="center"><span>Product</span> Detail</h1>
+            <div class="content">
+                <form action="javascript:void(0)">
+                    <div class="form-group">
+                        <label>Brand</label>
+                        <input type="text" class="form-control" id="1" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Model</label>
+                        <input type="text" class="form-control" id="2" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Color</label>
+                        <input type="text" class="form-control" id="3" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Condition</label>
+                        <input type="text" class="form-control" id="4" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Price</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">Rs.</div>
+                            <input type="text" class="form-control" id="5" placeholder="Price">
+                            <div class="input-group-addon">.00</div>
+                        </div>
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" class="form-control" id="6" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Contact</label>
+                        <input type="text" class="form-control" id="7" />
+                    </div>
+                    <!--form-group-->
+
+                    <div class="form-group">
+                        <label>Select a Picture</label>
+                        <input type="file" id="file" class="form-control" /><br>
+                        <div id="postImgView">
+                            <center><img id="img" src="" height="150" width="150" alt="Image preview..."></center>
+                        </div>
+                        <!--postImgView-->
+                    </div>
+                    <!--form-group-->
+
+                    <script>
+                        var ls = localStorage.getItem("img") || "";
+                        var file = document.querySelector('input[type=file]');
+                        var img = document.getElementById('img');
+                        img.src = ls;
+                        file.onchange = function() {
+                            var fr = new FileReader();
+                            fr.onload = function() {
+                                ls = fr.result
+                                localStorage.setItem("img", ls);
+                                ls = localStorage.getItem("img");
+                                img.src = ls;
+                                // location.reload();
+                            }
+                            if (file.files[0]) {
+                                fr.readAsDataURL(file.files[0])
+                            }
+                        }
+                    </script>
+
+                    <center><input type="submit" class="btn btn-warning" onClick="add();" value="Post now" /></center>
+                </form>
+
+
+
+
+                <script src="myjs.js"></script>
+                <script src="js/jquery-1.12.0.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
